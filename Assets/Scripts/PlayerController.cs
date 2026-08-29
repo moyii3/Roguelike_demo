@@ -7,8 +7,14 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rb;
     public float moveSpeed = 5f;
 
-    private Vector3 moveDirection;
-    void Start()
+    
+    [HideInInspector]
+    public Vector3 moveDirection;
+    [HideInInspector]
+    public float lastHorizontal;
+    [HideInInspector]
+    public float lastVertical;
+    void Awake()
     {
         
     }
@@ -28,6 +34,15 @@ public class PlayerController : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal"); // A/D
         float vertical = Input.GetAxisRaw("Vertical"); // W/S
+
+        if(horizontal != 0)
+        {
+            lastHorizontal = horizontal;
+        }
+        if(vertical != 0)
+        {
+            lastVertical = vertical;
+        }
 
         moveDirection = (transform.right * horizontal + transform.forward * vertical);
 
