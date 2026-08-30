@@ -9,7 +9,9 @@ public class Enemy : MonoBehaviour
     public float speed = 5f;
 
     [SerializeField] int hp = 3;
+    [SerializeField] int damage = 1;
 
+    Character playerCharacter;
     private Rigidbody rb;
     private GameObject attackGameObject;
 
@@ -38,7 +40,12 @@ public class Enemy : MonoBehaviour
 
     private void Attack()
     {
-        Debug.Log("attacking");
+        if(playerCharacter == null)
+        {
+            playerCharacter = attackGameObject.GetComponent<Character>();
+        }
+
+        playerCharacter.TakeDamage(damage);
     }
 
     public void TakeDamage(int damage)
