@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public class Character : MonoBehaviour, IDamageable
 {
     public int maxHp = 100;
     public int curHp = 100;
     [SerializeField] HpBarState hpBarState;
 
+    void Start()
+    {
+        hpBarState.SetState(curHp, maxHp);
+    }
     public void TakeDamage(int damage)
     {
         curHp -= damage;
@@ -25,5 +29,6 @@ public class Character : MonoBehaviour
         
         curHp += healAmount;
         if(curHp > maxHp) curHp = maxHp;
+        hpBarState.SetState(curHp, maxHp);
     }
 }

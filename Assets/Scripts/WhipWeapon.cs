@@ -50,9 +50,10 @@ public class WhipWeapon : MonoBehaviour
     {
         foreach(Collider col in colliders)
         {
-            if(col.tag == "Enemy")
+            IDamageable damageable = col.GetComponent<IDamageable>();
+            if(damageable != null && col.tag != "Player")
             {
-                col.GetComponent<Enemy>().TakeDamage(whipDamage);
+                damageable.TakeDamage(whipDamage);
             }
         }
     }
