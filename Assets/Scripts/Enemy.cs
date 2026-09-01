@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     [SerializeField] int hp = 3;
     [SerializeField] int damage = 1;
+    [SerializeField] int experienceReward = 400;
 
     Character playerCharacter;
     private Rigidbody rb;
@@ -54,6 +55,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
         if(hp < 1)
         {
+            attackGameObject.GetComponent<Level>().AddExperience(experienceReward);
             Destroy(gameObject);
         }
     }
