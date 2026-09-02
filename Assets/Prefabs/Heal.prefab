@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 5067754526120532184}
   - component: {fileID: 7393496784603373287}
   - component: {fileID: 5965533019684035125}
-  - component: {fileID: 7182669395228106426}
+  - component: {fileID: 560777496173101030}
+  - component: {fileID: 49630163153949023}
   m_Layer: 0
   m_Name: Heal
   m_TagString: Untagged
@@ -106,7 +107,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7182669395228106426
+--- !u!114 &560777496173101030
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,7 +116,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1683558277503427851}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d9576f10ca076e418098dbbfd17a2e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1fd662ce345c9e346966028fbfe5c280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healAmount: 50
+  healAmount: 100
+--- !u!114 &49630163153949023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683558277503427851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e180416856ad2a4cb9fdf5c96793f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

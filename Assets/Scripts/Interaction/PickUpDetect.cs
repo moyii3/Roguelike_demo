@@ -1,17 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class PickUp : MonoBehaviour
+public class PickUpDetect : MonoBehaviour
 {
-    [SerializeField] int healAmount;
-
     private void OnTriggerEnter(Collider other)
     {
         Character c = other.GetComponent<Character>();
         if(c != null)
         {
-            c.Heal(healAmount);
+            GetComponent<IPickUpObject>().OnPickUp(c);
             Destroy(gameObject);
         }
     }

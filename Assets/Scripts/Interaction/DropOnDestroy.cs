@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class DropOnDestroy : MonoBehaviour
 {
-    [SerializeField] GameObject healthPickUp;
+    [SerializeField] GameObject dropItemPrefab;
     [SerializeField] [Range(0f, 1f)] float chance = 1f;
 
     void OnDestroy()
     {
         if(Random.value < chance)
         {
-            Transform t = Instantiate(healthPickUp).transform;
+            Transform t = Instantiate(dropItemPrefab).transform;
             t.position = transform.position;
         }
 
