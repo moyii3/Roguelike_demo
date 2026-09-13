@@ -19,7 +19,8 @@ public class Enemy : MonoBehaviour, IDamageable
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        //target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameManager.instance.playerTransfrom;
         attackGameObject = target.gameObject;
     }
 
