@@ -14,16 +14,18 @@ public class DropOnDestroy : MonoBehaviour
         isQuitting = true;
     }
 
-    void OnDestroy()
+    public void CheckDrop()
     {
-        if (!isQuitting)
+        if (isQuitting)
         {
-            if(Random.value < chance)
-            {
-                Transform t = Instantiate(dropItemPrefab).transform;
-                t.position = transform.position;
-            }    
+            return;
         }
+        
+        if(Random.value < chance)
+        {
+            Transform t = Instantiate(dropItemPrefab).transform;
+            t.position = transform.position;
+        }    
         
 
     }

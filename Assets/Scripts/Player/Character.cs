@@ -19,7 +19,7 @@ public class Character : MonoBehaviour, IDamageable
 
         if(curHp <= 0 )
         {
-            Debug.Log("玩家死亡");
+            GetComponent<CharacterGameOver>().GameOver();
         }
     }
 
