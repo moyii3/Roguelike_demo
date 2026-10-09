@@ -12,6 +12,7 @@ public class WhipWeapon : MonoBehaviour
 
     private float timeToAttack = 2f;
     private float timer = 2f;
+    private Character playerCharacter;
     PlayerController playerController;
     [SerializeField] Vector3 whipAttackHalfSize = new Vector3(2f, 2f, 2f);
     [SerializeField] int whipDamage = 1;
@@ -19,6 +20,7 @@ public class WhipWeapon : MonoBehaviour
     private void Awake()
     {
         playerController = GetComponentInParent<PlayerController>();
+        playerCharacter = GameManager.instance.playerTransfrom.GetComponent<Character>();
     }
     private void Update()
     {
@@ -29,6 +31,14 @@ public class WhipWeapon : MonoBehaviour
         }
     }
 
+    int FINAL_DAMAGE
+    {
+        
+        get
+        {
+            return whipDamage + playerCharacter.strength;   
+        }
+    }
     private void Attack()
     {   
         if(playerController.lastHorizontal > 0)
@@ -53,7 +63,7 @@ public class WhipWeapon : MonoBehaviour
             IDamageable damageable = col.GetComponent<IDamageable>();
             if(damageable != null && col.tag != "Player")
             {
-                damageable.TakeDamage(whipDamage);
+                damageable.TakeDamage(FINAL_DAMAGE);
             }
         }
     }

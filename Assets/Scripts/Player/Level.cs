@@ -8,6 +8,7 @@ public class Level : MonoBehaviour
     [SerializeField] int level = 1;
     [SerializeField] int experience = 0;
     [SerializeField] ExperienceBar experienceBar;
+    private Character  playCharacter;
 
     int TO_LEVEL_UP
     {
@@ -21,6 +22,7 @@ public class Level : MonoBehaviour
     {
         experienceBar.UpdateExperienceBar(experience, TO_LEVEL_UP);
         experienceBar.SetLevelText(level);
+        playCharacter = GameManager.instance.playerTransfrom.GetComponent<Character>();
     }
     public void AddExperience(int amount)
     {
@@ -35,6 +37,8 @@ public class Level : MonoBehaviour
         {
             experience -= TO_LEVEL_UP;
             level += 1;
+            playCharacter.strength += level;
+            playCharacter.defense += level;
             experienceBar.SetLevelText(level);
         }
     }

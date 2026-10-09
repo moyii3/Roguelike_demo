@@ -122,9 +122,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 10
+  speed: 3
   hp: 3
-  damage: 1
+  damage: 10
   experienceReward: 400
 --- !u!54 &4422229094036546850
 Rigidbody:
