@@ -9,6 +9,7 @@ public class Level : MonoBehaviour
     [SerializeField] int experience = 0;
     [SerializeField] ExperienceBar experienceBar;
     private Character  playCharacter;
+    public UpgradeManager upgradeManager;
 
     int TO_LEVEL_UP
     {
@@ -40,6 +41,7 @@ public class Level : MonoBehaviour
             playCharacter.strength += level;
             playCharacter.defense += level;
             experienceBar.SetLevelText(level);
+            upgradeManager.SetUpgradePanel();
         }
     }
 }
