@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UpgradeData : MonoBehaviour
 {
@@ -13,7 +15,7 @@ public class UpgradeData : MonoBehaviour
     {
         this.upgradeSO = upgradeSO;
         name2.text = upgradeSO.name1;
-        description.text = upgradeSO.description;
-                
+        description.text = upgradeSO.description;       
     }
+    
 }

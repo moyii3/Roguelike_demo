@@ -38,8 +38,8 @@ public class Level : MonoBehaviour
         {
             experience -= TO_LEVEL_UP;
             level += 1;
-            playCharacter.strength += level;
-            playCharacter.defense += level;
+            //playCharacter.strength += level;
+            //playCharacter.defense += level;
             experienceBar.SetLevelText(level);
             upgradeManager.SetUpgradePanel();
         }
