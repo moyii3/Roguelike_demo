@@ -11,7 +11,8 @@ public class UpgradeSO : ScriptableObject
         strength,
         defense,
         speed,
-        attackSpeed
+        attackSpeed,
+        triAttack
         
     }
     public string name1;

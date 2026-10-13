@@ -7585,7 +7585,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 673910004}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 952147837}
+        m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
+        m_MethodName: ApplyUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 673910006}
+          m_ObjectArgumentAssemblyTypeName: UpgradeData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &673910004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8469,6 +8481,7 @@ MonoBehaviour:
   moveSpeed: 5
   moveDirection: {x: 0, y: 0, z: 0}
   lastHorizontal: 0
+  lastDirection: {x: 0, y: 0, z: 0}
   lastVertical: 0
 --- !u!136 &907034147
 CapsuleCollider:
@@ -8658,6 +8671,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 421c0e4eeacb1fb4f85dc6fc4bbc1572, type: 2}
   - {fileID: 11400000, guid: 60a6b7aa69b8cd8418c0dcbf8e602c1a, type: 2}
   - {fileID: 11400000, guid: 1849984cab3c96249b49b63f50abb5f8, type: 2}
+  - {fileID: 11400000, guid: 7b71e3c5f71714c4e9429f11f170fdd6, type: 2}
+  character: {fileID: 907034151}
 --- !u!4 &952147838
 Transform:
   m_ObjectHideFlags: 0
@@ -20943,13 +20958,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 952147837}
+        m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
+        m_MethodName: ApplyUpgrade
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgument: {fileID: 1730505809}
+          m_ObjectArgumentAssemblyTypeName: UpgradeData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -21197,7 +21212,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1770651380}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 952147837}
+        m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
+        m_MethodName: ApplyUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1770651382}
+          m_ObjectArgumentAssemblyTypeName: UpgradeData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1770651380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21983,6 +22010,9 @@ MonoBehaviour:
   rightAttack: {fileID: 571509467}
   upAttack: {fileID: 0}
   downAttack: {fileID: 0}
+  targetPosition: {x: 0, y: 0, z: 0}
+  timeToAttack: 2
+  triAttack: 0
   whipAttackHalfSize: {x: 2, y: 2, z: 2}
   whipDamage: 1
 --- !u!1 &1989644514

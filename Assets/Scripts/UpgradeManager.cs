@@ -18,9 +18,16 @@ public class UpgradeManager : MonoBehaviour
     }
     public void RandomUpgrade()
     {
+        int i = 0;
+        int count = upgradeSOs.Count;
         foreach(var upgradeData in upgradeDatas)
         {
-            upgradeData.SetUp(upgradeSOs[(int)Random.Range(0,4)]);
+            int index = Random.Range(i, count);
+            UpgradeSO t = upgradeSOs[i];
+            upgradeSOs[i] = upgradeSOs[index];
+            upgradeSOs[index] = t;
+            upgradeData.SetUp(upgradeSOs[i]);
+            i++;
         }
     }
     public void ApplyUpgrade(UpgradeData upgradeData)
@@ -34,8 +41,14 @@ public class UpgradeManager : MonoBehaviour
                 character.defense += upgradeData.upgradeSO.amount;
                 break;
             case UpgradeSO.UpgradeType.speed:
+                character.GetComponent<PlayerController>().moveSpeed += upgradeData.upgradeSO.amount;
                 break;
             case UpgradeSO.UpgradeType.attackSpeed:
+                character.GetComponentInChildren<WhipWeapon>().timeToAttack -= (upgradeData.upgradeSO.amount * 20) * 0.01f;
+                break;
+            case UpgradeSO.UpgradeType.triAttack:
+                character.GetComponentInChildren<WhipWeapon>().triAttack = true;
+                upgradeSOs.Remove(upgradeData.upgradeSO);
                 break;
         }
         UpgradeSelectionPanel.SetActive(false);

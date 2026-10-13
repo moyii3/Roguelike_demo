@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 moveDirection;
     [HideInInspector]
     public float lastHorizontal;
+    public Vector3 lastDirection;
     [HideInInspector]
     public float lastVertical;
     void Awake()
@@ -44,9 +45,11 @@ public class PlayerController : MonoBehaviour
             lastVertical = vertical;
         }
 
+
         moveDirection = (transform.right * horizontal + transform.forward * vertical);
 
         moveDirection.Normalize(); // 归一化，防止斜向速度更快
+        lastDirection = moveDirection;
     }
 
     private void Move()
