@@ -1134,7 +1134,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 50, y: 0, z: 30}
-  m_LocalScale: {x: -2, y: 2, z: 2}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 356156572}
@@ -1368,7 +1368,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 30, y: 0, z: 10}
-  m_LocalScale: {x: 2, y: 2, z: -2}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1174541768}
@@ -1836,7 +1836,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 10, y: 0, z: 50}
-  m_LocalScale: {x: -2, y: 2, z: 2}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1076889319}
@@ -8570,6 +8570,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1986225515}
+  - {fileID: 922450437}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &907034151
@@ -8632,6 +8633,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 1847930652}
+--- !u!1 &922450435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 922450437}
+  - component: {fileID: 922450436}
+  m_Layer: 0
+  m_Name: OrbitWeaponManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &922450436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922450435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8ba7796a9e026445b51f3c713b75178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 907034150}
+  weaponPrefab: {fileID: 3672081530048520047, guid: 289bd955e13eacc4d921d4443c61262f, type: 3}
+  radius: 8
+  rotateSpeed: 180
+--- !u!4 &922450437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922450435}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -33.2, y: -1.07, z: -28.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 907034150}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &952147836
 GameObject:
   m_ObjectHideFlags: 0
@@ -8672,6 +8721,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 60a6b7aa69b8cd8418c0dcbf8e602c1a, type: 2}
   - {fileID: 11400000, guid: 1849984cab3c96249b49b63f50abb5f8, type: 2}
   - {fileID: 11400000, guid: 7b71e3c5f71714c4e9429f11f170fdd6, type: 2}
+  - {fileID: 11400000, guid: a97cc07c131e86e41a948219bae27983, type: 2}
   character: {fileID: 907034151}
 --- !u!4 &952147838
 Transform:

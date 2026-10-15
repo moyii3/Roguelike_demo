@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3380302412932355413}
   m_Layer: 0
   m_Name: DamageableObst
-  m_TagString: Untagged
+  m_TagString: Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,8 +106,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.99881375, z: 1}
+  m_Center: {x: 0, y: -0.0005931258, z: 0}
 --- !u!114 &4475591097588263153
 MonoBehaviour:
   m_ObjectHideFlags: 0

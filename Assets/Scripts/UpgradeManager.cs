@@ -9,6 +9,8 @@ public class UpgradeManager : MonoBehaviour
     public List<UpgradeData> upgradeDatas;
     public List<UpgradeSO> upgradeSOs;
     public Character character;
+    
+    private int OrbitWeaponCount = 0;
 
     public void SetUpgradePanel()
     {
@@ -49,6 +51,10 @@ public class UpgradeManager : MonoBehaviour
             case UpgradeSO.UpgradeType.triAttack:
                 character.GetComponentInChildren<WhipWeapon>().triAttack = true;
                 upgradeSOs.Remove(upgradeData.upgradeSO);
+                break;
+            case UpgradeSO.UpgradeType.OrbitWeapon:
+                OrbitWeaponCount += upgradeData.upgradeSO.amount;
+                character.GetComponentInChildren<OrbitWeaponManager>().SetWeaponCount(OrbitWeaponCount);
                 break;
         }
         UpgradeSelectionPanel.SetActive(false);
