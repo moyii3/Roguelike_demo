@@ -13,7 +13,9 @@ public class UpgradeSO : ScriptableObject
         speed,
         attackSpeed,
         triAttack,
-        OrbitWeapon
+        OrbitWeapon,
+        OrbitSpeed,
+        OrbitRadius
         
     }
     public string name1;
@@ -21,4 +23,10 @@ public class UpgradeSO : ScriptableObject
     public Sprite icon;
     public UpgradeType upgradeType;
     public int amount;
+
+    [Header("解锁前置条件")]
+    public UpgradeSO[] prerequisites;
+
+    [Header("互斥强化")]
+    public UpgradeSO[] exclusions;
 }

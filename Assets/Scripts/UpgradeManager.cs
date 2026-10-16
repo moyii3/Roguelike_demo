@@ -9,8 +9,12 @@ public class UpgradeManager : MonoBehaviour
     public List<UpgradeData> upgradeDatas;
     public List<UpgradeSO> upgradeSOs;
     public Character character;
-    
-    private int OrbitWeaponCount = 0;
+
+
+    [SerializeField]
+    private List<UpgradeSO> acquiredUpgrade = new();
+    private int orbitWeaponCount = 0;
+
 
     public void SetUpgradePanel()
     {
@@ -20,18 +24,48 @@ public class UpgradeManager : MonoBehaviour
     }
     public void RandomUpgrade()
     {
-        int i = 0;
-        int count = upgradeSOs.Count;
+        List<UpgradeSO> pool = new();
+
+        //建立当前可获得的强化池
+        foreach(var upgradeSO in upgradeSOs)
+        {
+            if(IsAvailable(upgradeSO))
+                pool.Add(upgradeSO);
+        }
+        //随机抽取
         foreach(var upgradeData in upgradeDatas)
         {
-            int index = Random.Range(i, count);
-            UpgradeSO t = upgradeSOs[i];
-            upgradeSOs[i] = upgradeSOs[index];
-            upgradeSOs[index] = t;
-            upgradeData.SetUp(upgradeSOs[i]);
-            i++;
+            int index = Random.Range(0, pool.Count);
+            upgradeData.SetUp(pool[index]);
+            pool.RemoveAt(index);
         }
+
+
     }
+
+    private bool IsAvailable(UpgradeSO upgradeSO)
+    {
+        //前置未满足
+        if(upgradeSO.prerequisites != null)
+        {
+            foreach(var p in upgradeSO.prerequisites)
+            {
+                if(!acquiredUpgrade.Contains(p)) return false;
+            }
+        }
+
+        //和已有强化互斥
+        if(upgradeSO.exclusions != null)
+        {
+            foreach(var p in upgradeSO.exclusions)
+            {
+                if(acquiredUpgrade.Contains(p)) return false;
+            }
+        }
+
+        return true;
+    }
+
     public void ApplyUpgrade(UpgradeData upgradeData)
     {
         switch (upgradeData.upgradeSO.upgradeType)
@@ -53,10 +87,17 @@ public class UpgradeManager : MonoBehaviour
                 upgradeSOs.Remove(upgradeData.upgradeSO);
                 break;
             case UpgradeSO.UpgradeType.OrbitWeapon:
-                OrbitWeaponCount += upgradeData.upgradeSO.amount;
-                character.GetComponentInChildren<OrbitWeaponManager>().SetWeaponCount(OrbitWeaponCount);
+                orbitWeaponCount += upgradeData.upgradeSO.amount;
+                character.GetComponentInChildren<OrbitWeaponManager>().SetWeaponCount(orbitWeaponCount);
+                break;
+            case UpgradeSO.UpgradeType.OrbitSpeed:
+                character.GetComponentInChildren<OrbitWeaponManager>().rotateSpeed *= upgradeData.upgradeSO.amount;
+                break;
+            case UpgradeSO.UpgradeType.OrbitRadius:
+                character.GetComponentInChildren<OrbitWeaponManager>().radius *= upgradeData.upgradeSO.amount;
                 break;
         }
+        acquiredUpgrade.Add(upgradeData.upgradeSO);
         UpgradeSelectionPanel.SetActive(false);
         Time.timeScale = 1f;
     }

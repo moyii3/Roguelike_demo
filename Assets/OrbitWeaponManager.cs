@@ -44,7 +44,7 @@ public class OrbitWeaponManager : MonoBehaviour
         for(int i = 0; i < count; i++)
         {
             float a = (angle + step * i) * Mathf.Deg2Rad;
-            Vector3 offset = new Vector3(Mathf.Cos(a), 0, Mathf.Sin(a));
+            Vector3 offset = new Vector3(Mathf.Cos(a), 0, Mathf.Sin(a)) * radius;
             weapons[i].transform.position = target.position + offset;
         }
     }
