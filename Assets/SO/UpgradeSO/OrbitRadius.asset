@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3ef95e7deb3cec44982e860b6b07856, type: 3}
   m_Name: OrbitRadius
   m_EditorClassIdentifier: 
-  name1: 
-  description: 
+  name1: Larger OrbitRadius
+  description: OrbitRadius double
   icon: {fileID: 0}
-  upgradeType: 0
-  amount: 0
-  prerequisites: []
+  upgradeType: 7
+  amount: 2
+  prerequisites:
+  - {fileID: 11400000, guid: a97cc07c131e86e41a948219bae27983, type: 2}
   exclusions: []

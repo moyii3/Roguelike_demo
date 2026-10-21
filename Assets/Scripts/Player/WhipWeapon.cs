@@ -15,6 +15,7 @@ public class WhipWeapon : MonoBehaviour
     private float timer = 2f;
     public bool triAttack = false;
     private Character playerCharacter;
+    private LayerMask playerMask;
     PlayerController playerController;
     [SerializeField] Vector3 whipAttackHalfSize = new Vector3(2f, 2f, 2f);
     [SerializeField] int whipDamage = 1;
@@ -23,6 +24,7 @@ public class WhipWeapon : MonoBehaviour
     {
         playerController = GetComponentInParent<PlayerController>();
         playerCharacter = GameManager.instance.playerTransfrom.GetComponent<Character>();
+        playerMask = LayerMask.GetMask("Player");
     }
     private void Update()
     {
@@ -51,13 +53,15 @@ public class WhipWeapon : MonoBehaviour
         if(playerController.lastHorizontal > 0)
         {
             rightAttack.Play();
-            Collider[] colliders = Physics.OverlapBox(transform.position - 2 * Vector3.left, whipAttackHalfSize); //攻击触发范围
+            Collider[] colliders = Physics.OverlapBox(transform.position - 2 * Vector3.left, whipAttackHalfSize, Quaternion.identity,
+             ~playerMask); //攻击触发范围
             ApplyDamage(colliders);
         }
         else
         {
             leftAttack.Play();
-            Collider[] colliders = Physics.OverlapBox(transform.position + 2 * Vector3.left, whipAttackHalfSize); //攻击触发范围
+            Collider[] colliders = Physics.OverlapBox(transform.position + 2 * Vector3.left, whipAttackHalfSize, Quaternion.identity,
+             ~playerMask); //攻击触发范围
             ApplyDamage(colliders);
         }
 
@@ -83,7 +87,7 @@ public class WhipWeapon : MonoBehaviour
         foreach(Collider col in colliders)
         {
             IDamageable damageable = col.GetComponent<IDamageable>();
-            if(damageable != null && col.tag != "Player")
+            if(damageable != null)
             {
                 damageable.TakeDamage(FINAL_DAMAGE);
             }

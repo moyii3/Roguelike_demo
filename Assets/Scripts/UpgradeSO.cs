@@ -15,7 +15,8 @@ public class UpgradeSO : ScriptableObject
         triAttack,
         OrbitWeapon,
         OrbitSpeed,
-        OrbitRadius
+        OrbitRadius,
+        EnemyExplosion
         
     }
     public string name1;

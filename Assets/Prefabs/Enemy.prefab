@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4422229094036546850}
   - component: {fileID: 8582824683140731123}
   - component: {fileID: 7066143106177446400}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -123,6 +123,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 3
+  explosionRadius: 3
+  explosionDamageAmount: 1
+  explosion: 0
+  isDead: 0
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 64
   hp: 3
   damage: 5
   experienceReward: 400

@@ -7,10 +7,16 @@ public class Enemy : MonoBehaviour, IDamageable
 {
     public Transform target;
     public float speed = 5f;
+    public float explosionRadius = 5f;
+    public int explosionDamageAmount = 1;
+    public bool explosion = false;
+    public bool isDead = false;
+    public LayerMask enemyMask;
 
     [SerializeField] int hp = 3;
     [SerializeField] int damage = 1;
     [SerializeField] int experienceReward = 400;
+
 
     Character playerCharacter;
     private Rigidbody rb;
@@ -52,13 +58,38 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
+        if(isDead) return;
+
         hp -= damage;
 
         if(hp < 1)
         {
+            isDead = true;
+
             attackGameObject.GetComponent<Level>().AddExperience(experienceReward);
             GetComponent<DropOnDestroy>().CheckDrop();
+            if(explosion != false)
+            {
+                DieToExplode();
+            }
             Destroy(gameObject);
+        }
+    }
+
+    public void DieToExplode()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius, enemyMask);
+        ExplosionDamage(colliders);
+    }
+
+    void ExplosionDamage(Collider[] colliders)
+    {
+        foreach(var col in colliders)
+        {
+            if (col.gameObject != transform.gameObject)
+            {
+                col.transform.GetComponent<IDamageable>().TakeDamage(explosionDamageAmount);
+            }
         }
     }
 }

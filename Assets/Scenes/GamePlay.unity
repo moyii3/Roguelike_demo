@@ -8431,7 +8431,7 @@ GameObject:
   - component: {fileID: 907034152}
   - component: {fileID: 907034153}
   - component: {fileID: 907034154}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -8664,7 +8664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 907034150}
   weaponPrefab: {fileID: 3672081530048520047, guid: 289bd955e13eacc4d921d4443c61262f, type: 3}
-  radius: 8
+  radius: 1
   rotateSpeed: 180
 --- !u!4 &922450437
 Transform:
@@ -8722,7 +8722,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1849984cab3c96249b49b63f50abb5f8, type: 2}
   - {fileID: 11400000, guid: 7b71e3c5f71714c4e9429f11f170fdd6, type: 2}
   - {fileID: 11400000, guid: a97cc07c131e86e41a948219bae27983, type: 2}
+  - {fileID: 11400000, guid: 3f4cc3e6555ec0e489ba16d93435da4b, type: 2}
+  - {fileID: 11400000, guid: 722bf536e07786447a76cdd35ded63d0, type: 2}
+  - {fileID: 11400000, guid: f606cd6abd817b6408600b30dbd6db2e, type: 2}
   character: {fileID: 907034151}
+  enemyPrefab: {fileID: 2288326603078396669, guid: fbad264fadd64ba42a43e0d702816826, type: 3}
+  acquiredUpgrade: []
 --- !u!4 &952147838
 Transform:
   m_ObjectHideFlags: 0

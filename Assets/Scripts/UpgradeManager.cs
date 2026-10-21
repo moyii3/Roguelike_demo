@@ -9,6 +9,7 @@ public class UpgradeManager : MonoBehaviour
     public List<UpgradeData> upgradeDatas;
     public List<UpgradeSO> upgradeSOs;
     public Character character;
+    public GameObject enemyPrefab;
 
 
     [SerializeField]
@@ -95,6 +96,11 @@ public class UpgradeManager : MonoBehaviour
                 break;
             case UpgradeSO.UpgradeType.OrbitRadius:
                 character.GetComponentInChildren<OrbitWeaponManager>().radius *= upgradeData.upgradeSO.amount;
+                break;
+            case UpgradeSO.UpgradeType.EnemyExplosion:
+                Enemy enemy = enemyPrefab.GetComponent<Enemy>();
+                enemy.explosion = true;
+                enemy.explosionDamageAmount = upgradeData.upgradeSO.amount;
                 break;
         }
         acquiredUpgrade.Add(upgradeData.upgradeSO);
